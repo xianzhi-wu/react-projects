@@ -6,7 +6,7 @@ export default function ProductItem({ styles, product }) {
 
   return (
     <li className="box-layout">
-      <div className={`${styles.img} fadeIn`} style={{ backgroundImage: `url('/${product.image}')` }}></div>
+      <div className={`${styles.img} fadeIn`} style={{ backgroundImage: `url('./${product.image}')` }}></div>
       <div className={`${styles.productDetail} box-col`}>
         <p className={styles.productName}>                 
           <span>{product.name}</span>                 

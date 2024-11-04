@@ -29,7 +29,7 @@ export default function Checkout() {
           {
             cartCtx.items.map(item => (
               <div key={item.id} className="li box-layout center-v">
-                  <div className="img" style={{ backgroundImage: `url('/${item.image}')` }}></div>
+                  <div className="img" style={{ backgroundImage: `url('./${item.image}')` }}></div>
                   <div className="box-col">
                       <div className="name">{item.name}</div>
                       <div className="box-layout center-v">

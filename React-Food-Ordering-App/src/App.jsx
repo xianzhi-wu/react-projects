@@ -19,7 +19,7 @@
 
 // export default App;
 
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createHashRouter, RouterProvider, Outlet } from "react-router-dom";
 import Index from "./Index";
 import Checkout from "./components/features/cart/Checkout";
 import CartContextProvider from "./store/CartContext";
@@ -29,7 +29,7 @@ import ResponsiveFontSize from "./utils/ResponsiveFontSize";
 function App() {
   ResponsiveFontSize();
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <Outlet />,

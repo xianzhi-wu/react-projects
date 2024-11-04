@@ -687,19 +687,18 @@ input {
 }
 
 #miniCart #cart #amount {
-	font-family: "Helvetica Neue", Helvetica;
+	color: #fff;
 	height: 0.4rem;
 	width: 0.4rem;
+	line-height: 0.4rem;
 	border-radius: 50%;
 	background: #e20e26;
 	text-align: center;
-	line-height: 0.44rem;
 	font-size: 0.24rem;
 	position: absolute;
 	top: -0.1rem;
 	right: -0.04rem;
 	border: 2px solid #fff;
-	color: #fff;
 }
 
 #miniCart #orders {
@@ -904,22 +903,6 @@ input {
 #foodList li.none:before,
 #today .swiper-lazy.none:before {
 	content: '已卖光';
-}
-
-#miniCart #cart #amount {
-	font-family: "Helvetica Neue", Helvetica;
-	height: 0.4rem;
-	width: 0.4rem;
-	border-radius: 50%;
-	background: #e20e26;
-	text-align: center;
-	line-height: 0.44rem;
-	font-size: 0.24rem;
-	position: absolute;
-	top: -0.18rem;
-	right: -0.08rem;
-	border: 2px solid #fff;
-	color: #fff;
 }
 
 .foodop {
