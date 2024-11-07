@@ -21,7 +21,7 @@
   position: relative;
 	padding: 0 0.5rem 0 0.2rem;
 	margin: 0 0.15rem;
-	max-width: 3.7rem;
+	max-width: 5rem;
 	color: #d9521a;
 	background-color: #f2f2f2;
 	height: 0.5rem;
@@ -31,18 +31,18 @@
 
 .header .address:after {
 	position: absolute;
-	top: 0.12rem;
+	top: 0.15rem;
 	right: 0.25rem;
 	content: '';
-	height: 0.15rem;
-	width: 0.15rem;
-	border-top: 1px solid #d9521a;
-	border-left: 1px solid #d9521a;
+	height: 0.12rem;
+	width: 0.12rem;
+	border-top: 2px solid #d9521a;
+	border-left: 2px solid #d9521a;
 	display: block;
 	transform: rotate(-135deg);
 }
 
-.header .time {
+/* .header .time {
 	color: #44d0e9;
 	font-size: 0.28rem;
 	text-align: right;
@@ -67,4 +67,4 @@
 .header .time.tomorrow:before {
 	background-image: url(../../assets/icons/tomorrow.png);
   background-size: 0.4rem 0.4rem;
-}
+} */

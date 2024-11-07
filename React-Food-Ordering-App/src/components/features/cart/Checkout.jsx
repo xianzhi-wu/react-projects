@@ -10,8 +10,6 @@ export default function Checkout() {
     return total + item.price * 100 * item.amount;
   }, 0);
 
-  console.log(cartTotalPrice)
-
   return (
     <>
       <Header title="确认订单" />
@@ -76,9 +74,14 @@ export default function Checkout() {
 			</div>
 
       <div className="fixed-btm box-layout center-v" id="miniCart">
-        <div className="discounted">已优惠￥<span>6.60</span></div>
-        <div className="pay box-col">需付：<span className="priceNum">￥<i>{(cartTotalPrice / 100).toFixed(2)}</i></span></div>
-        <input type="submit" id="confirm" value="选 好"/>
+        { cartTotalPrice > 1000 ?
+          <>
+            <div className="discounted">-￥<span>10</span></div>
+            <div className="pay box-col">Total: <span className="priceNum">￥<i>￥{((cartTotalPrice - 1000) / 100).toFixed(2)}</i></span></div>
+          </> :
+          <div className="pay box-col">Total: <span className="priceNum">￥<i>{(cartTotalPrice / 100).toFixed(2)}</i></span></div>
+        }
+        <input type="submit" id="confirm" value="Order"/>
       </div>
     </>
   );

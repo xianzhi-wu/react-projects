@@ -1,0 +1,89 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 0.32rem;
+  height: 0.32rem;
+  margin-left: auto;
+}
+
+.menu .menu-icon {
+  width: 0.32rem;
+  height: 0.32rem;
+  position: relative;
+}
+
+.menu .menu-icon .bar {
+  width: 100%;
+  height: 0.05rem;
+  background-color: #44d0e9;
+  transition: transform 0.3s ease;
+}
+
+.menu.active .menu-icon .bar:nth-child(2) {
+  transform: translateY(0.08rem);
+}
+
+.menu.active .menu-icon .bar:nth-child(3) {
+  transform: translateY(0.16rem);
+}
+
+.menu-icon .text {
+  position: relative;
+  width: 100%;
+  height: 0.17rem;
+  visibility: visible;
+  opacity: 1; 
+  transition: visibility 0s 0.3s, opacity 0s 0.3s; /* Delay the appearance without transition effects */
+}
+
+.menu-icon .text::before {
+  content: 'MENU';
+  position: absolute;
+  bottom: 0;
+  left: 0;  
+  right: 0;
+  font-size: 0.1rem;
+  font-weight: bold;
+  color: #44d0e9;
+  line-height: normal;
+  text-align: center;
+}
+
+.menu.active .menu-icon .text {
+  visibility: hidden;
+  opacity: 0;
+  transition-delay: 0s;  /* No delay when active */
+}
+
+.menu-list {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  background-color: #44d0e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; 
+  visibility: hidden; 
+  transition: all 0.3s ease;
+}
+
+.menu-list a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  border-bottom: 1px solid #fff;
+}
+
+.menu.active .menu-list {
+  transform: translateY(0.53rem);
+  opacity: 1;
+  visibility: visible;
+}

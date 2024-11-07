@@ -35,17 +35,22 @@ export default function Cart() {
   return (
     cartTotalItems > 0 &&
     <>
-      <div className={`cover ${!showCart && "hide"}`} onClick={toggleCart}></div>
+      <div className={`cover ${showCart ? "" : "hide"}`} onClick={toggleCart}></div>
       <div id="miniCart" className="box-layout center-v fixed-btm">
         <i id="cart" onClick={toggleCart}>
           <span id="amount">{cartTotalItems}</span>
         </i>
         <div id="settle" className="box-col">
-          <span id="pay">{(cartTotalPrice / 100).toFixed(2)}</span>
-          <span id="dis">(已优惠￥<em id="disNum">10</em>)</span>
+          { cartTotalPrice > 1000 ?
+            <>
+              <span id="pay">￥{((cartTotalPrice - 1000) / 100).toFixed(2)}</span>
+              <span id="dis">(-￥<em id="disNum">10.00</em>)</span>
+            </> :
+            <span id="pay">{(cartTotalPrice / 100).toFixed(2)}</span>
+          }
         </div>
-        <input type="submit" id="confirm" value="确认订单" onClick={checkout}></input>
-        <div id="orders" className={!showCart && "hide"}>
+        <input type="submit" id="confirm" value="Checkout" onClick={checkout}></input>
+        <div id="orders" className={showCart ? "" : "hide"}>
           <div id="cartfoods">
             <ul className="cart-foodlist">  
               {
