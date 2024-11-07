@@ -25,6 +25,8 @@ import Checkout from "./components/features/cart/Checkout";
 import CartContextProvider from "./store/CartContext";
 
 import ResponsiveFontSize from "./utils/ResponsiveFontSize";
+import Discover from "./components/common/Discover";
+import MyAccount from "./components/common/MyAccount";
 
 function App() {
   ResponsiveFontSize();
@@ -50,6 +52,14 @@ function App() {
               <Checkout />
             </CartContextProvider>
           )
+        },
+        {
+          path: "discover",
+          element: <Discover />
+        },
+        {
+          path: "myaccount",
+          element: <MyAccount />
         }
       ]
     }

@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 0.32rem;
+  width: 0.36rem;
   height: 0.32rem;
   margin-left: auto;
 }
 
 .menu .menu-icon {
-  width: 0.32rem;
+  width: 100%;
   height: 0.32rem;
   position: relative;
 }
