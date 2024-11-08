@@ -25,8 +25,11 @@ import Checkout from "./components/features/cart/Checkout";
 import CartContextProvider from "./store/CartContext";
 
 import ResponsiveFontSize from "./utils/ResponsiveFontSize";
-import Discover from "./components/common/Discover";
+import Discover from "./components/common/discover/Discover";
 import MyAccount from "./components/common/MyAccount";
+import Join from "./components/common/discover/Join";
+import Intro from "./components/common/discover/Intro";
+import Safety from "./components/common/discover/Safety";
 
 function App() {
   ResponsiveFontSize();
@@ -55,10 +58,28 @@ function App() {
         },
         {
           path: "discover",
-          element: <Discover />
+          element: <Outlet />,
+          children: [
+            {
+              index: true,
+              element: <Discover />
+            },
+            {
+              path: 'join',
+              element: <Join />
+            },
+            {
+              path: "about-us",
+              element: <Intro />
+            },
+            {
+              path: "safety",
+              element: <Safety />
+            }
+          ]
         },
         {
-          path: "myaccount",
+          path: "my-account",
           element: <MyAccount />
         }
       ]

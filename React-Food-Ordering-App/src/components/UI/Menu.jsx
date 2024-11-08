@@ -22,7 +22,7 @@ export default function Menu() {
       <div className={styles["menu-list"]}>
         <Link to="/" className={styles["menu-item"]}>Home</Link>
         <Link to="discover" className={styles["menu-item"]}>Discover</Link>
-        <Link to="myaccount" className={styles["menu-item"]}>My Account</Link>
+        <Link to="my-account" className={styles["menu-item"]}>My Account</Link>
       </div>
     </div>
   );
