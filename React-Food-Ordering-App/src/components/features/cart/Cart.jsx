@@ -1,13 +1,14 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../../store/CartContext";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {useCartTotalItems, useCartTotalPrice} from "./hooks/useCartContext";
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
-
-  const cartTotalItems = cartCtx.items.reduce((total, item) => {
-    return total + item.amount;
-  }, 0);
+  const cartTotalItems = useCartTotalItems(cartCtx);
+  const cartTotalPrice = useCartTotalPrice(cartCtx);
+  
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
     if (cartTotalItems === 0) {
@@ -15,21 +16,9 @@ export default function Cart() {
     }
   }, [cartTotalItems]);
 
-  const cartTotalPrice = cartCtx.items.reduce((total, item) => {
-    return total + item.price * 100 * item.amount;
-  }, 0);
-
-  const [showCart, setShowCart] = useState(false);
-
   const toggleCart = (event) => {
     event.stopPropagation();
     setShowCart(prevState => !prevState);
-  }
-
-  const navigate = useNavigate();
-
-  const checkout = () => {
-    navigate("checkout");
   }
 
   return (
@@ -41,15 +30,15 @@ export default function Cart() {
           <span id="amount">{cartTotalItems}</span>
         </i>
         <div id="settle" className="box-col">
-          { cartTotalPrice > 1000 ?
+          { cartTotalPrice > 500 ?
             <>
-              <span id="pay">￥{((cartTotalPrice - 1000) / 100).toFixed(2)}</span>
-              <span id="dis">(-￥<em id="disNum">10.00</em>)</span>
+              <span id="pay">￥{((cartTotalPrice - 500) / 100).toFixed(2)}</span>
+              <span id="dis">(-￥<em id="disNum">5.00</em>)</span>
             </> :
             <span id="pay">{(cartTotalPrice / 100).toFixed(2)}</span>
           }
         </div>
-        <input type="submit" id="confirm" value="Checkout" onClick={checkout}></input>
+        <Link id="confirm" to="cart/checkout">Checkout</Link>
         <div id="orders" className={showCart ? "" : "hide"}>
           <div id="cartfoods">
             <ul className="cart-foodlist">  

@@ -27,9 +27,14 @@ import CartContextProvider from "./store/CartContext";
 import ResponsiveFontSize from "./utils/ResponsiveFontSize";
 import Discover from "./components/common/discover/Discover";
 import MyAccount from "./components/common/MyAccount";
-import Join from "./components/common/discover/Join";
+import Join from "./components/common/discover/join/Join";
 import Intro from "./components/common/discover/Intro";
 import Safety from "./components/common/discover/Safety";
+import Apply from "./components/common/discover/join/Apply";
+import ApplicationRecords from "./components/common/discover/join/ApplicationRecords";
+import Pay from "./components/features/cart/Pay";
+import Order from "./components/features/cart/Order";
+import Complete from "./components/features/cart/Complete";
 
 function App() {
   ResponsiveFontSize();
@@ -49,13 +54,43 @@ function App() {
           )
         },
         {
-          path: "checkout",
+          path: 'cart/checkout',
           element: (
             <CartContextProvider>
-              <Checkout />
+              <Outlet />
             </CartContextProvider>
-          )
+          ),
+          children: [
+            {
+              index: true,
+              element: <Checkout />
+            },
+            {
+              path: 'order',
+              element: <Order />
+            },
+            {
+              path: 'pay',
+              element: <Pay />
+            },
+            {
+              path: 'complete',
+              element: <Complete />
+            }
+          ]
         },
+        // {
+        //   path: "checkout",
+        //   element: (
+        //     <CartContextProvider>
+        //       <Checkout />
+        //     </CartContextProvider>
+        //   )
+        // },
+        // {
+        //   path: 'pay',
+        //   element: <Pay />
+        // },
         {
           path: "discover",
           element: <Outlet />,
@@ -65,8 +100,22 @@ function App() {
               element: <Discover />
             },
             {
-              path: 'join',
-              element: <Join />
+              path: "join",
+              element: <Outlet />,
+              children: [
+                {
+                  index: true,
+                  element: <Join />
+                },
+                {
+                  path: "apply",
+                  element: <Apply />
+                },
+                {
+                  path: "records",
+                  element: <ApplicationRecords />
+                }
+              ] 
             },
             {
               path: "about-us",

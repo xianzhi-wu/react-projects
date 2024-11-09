@@ -665,6 +665,8 @@ input {
 	font-size: 0.28rem;
 	border-radius: 0.1rem;
 	height: 0.7rem;
+	line-height: 0.7rem;
+	text-align: center;
 }
 
 #miniCart #cart {
@@ -3034,7 +3036,7 @@ input {
 .apply-list .checking {
 	width: 1.46rem;
 	height: 1.16rem;
-	background: url(../images/apply.png) no-repeat;
+	background: url(../src/assets/images/apply.png) no-repeat;
 	background-size: 1.46rem 3.56rem;
 	margin-left: 0.5rem;
 }
@@ -3065,7 +3067,6 @@ input {
 .apply-list .address {
 	color: #4c4c4c;
 	margin-top: 0.16rem;
-	min-height: 1rem;
 }
 
 .apply-list .date {

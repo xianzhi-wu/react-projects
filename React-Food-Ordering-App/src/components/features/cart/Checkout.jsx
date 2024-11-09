@@ -2,13 +2,13 @@ import Header from "../../layouts/Header";
 
 import { useContext } from "react";
 import { CartContext } from "../../../store/CartContext";
+import { Link } from "react-router-dom";
+import {useCartTotalPrice} from "./hooks/useCartContext";
 
 export default function Checkout() {
   const cartCtx = useContext(CartContext);
 
-  const cartTotalPrice = cartCtx.items.reduce((total, item) => {
-    return total + item.price * 100 * item.amount;
-  }, 0);
+  const cartTotalPrice = useCartTotalPrice(cartCtx);
 
   return (
     <>
@@ -31,8 +31,15 @@ export default function Checkout() {
                   <div className="box-col">
                       <div className="name">{item.name}</div>
                       <div className="box-layout center-v">
-                          <div className="box-col price">￥<span>{item.price}</span><i className="type">生</i><input type="hidden" value="0.8" className="favorNum"/></div>
-                          <a className="foodop"><i className="reduce"></i><em>1</em><i className="add"></i></a>
+                          <div className="box-col price">
+                            ￥<span>{item.price}</span>
+                            <i className="type">生</i>
+                          </div>
+                          <a className="foodop">
+                            <i className="reduce"></i>
+                            <em>1</em>
+                            <i className="add"></i>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -74,14 +81,14 @@ export default function Checkout() {
 			</div>
 
       <div className="fixed-btm box-layout center-v" id="miniCart">
-        { cartTotalPrice > 1000 ?
+        { cartTotalPrice > 500 ?
           <>
-            <div className="discounted">-￥<span>10</span></div>
-            <div className="pay box-col">Total: <span className="priceNum">￥<i>￥{((cartTotalPrice - 1000) / 100).toFixed(2)}</i></span></div>
+            <div className="discounted">-￥<span>5</span></div>
+            <div className="pay box-col">Total: <span className="priceNum">￥<i>{((cartTotalPrice - 500) / 100).toFixed(2)}</i></span></div>
           </> :
           <div className="pay box-col">Total: <span className="priceNum">￥<i>{(cartTotalPrice / 100).toFixed(2)}</i></span></div>
         }
-        <input type="submit" id="confirm" value="Order"/>
+        <Link id="confirm" to="/cart/checkout/order">Order</Link>
       </div>
     </>
   );
