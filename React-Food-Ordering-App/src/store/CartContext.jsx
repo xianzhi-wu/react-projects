@@ -1,7 +1,13 @@
-import { createContext, useReducer } from "react";
+import { createContext, useMemo, useReducer } from "react";
 
 export const CartContext = createContext({
   items: [],
+  totals: {
+    totalItems: 0,
+    totalPrice: 0,
+    discountPrice: 0,
+  },
+  discount: 0,
   addItem: () => {},
   removeItem: () => {}
 });
@@ -56,32 +62,47 @@ const cartReducer = (state, action) => {
 }
 
 const CartContextProvider = ({ children }) => {
-  const [cart, dispatchAcction] = useReducer(cartReducer, { items: [] });
+  const [cart, dispatchAction] = useReducer(cartReducer, {
+    items: [],
+    totals: { 
+      totalItems: 0, 
+      totalPrice: 0, 
+      discountPrice: 0 
+    },
+    discount: 5,
+  });
 
   const addItem = (item) => {
-    dispatchAcction({type: "ADD-ITEM", item });
+    dispatchAction({ type: "ADD-ITEM", item });
   }
 
   const removeItem = (id) => {
-    dispatchAcction({type: "REMOVE-ITEM", id });
+    dispatchAction({ type: "REMOVE-ITEM", id });
   }
+
+  const totals = useMemo(() => {
+    const totalItems = cart.items.reduce((total, item) => total + item.amount, 0);
+    
+    let totalPrice = cart.items.reduce((total, item) => total + item.price * 100 * item.amount, 0);
+    const discountPrice = ((totalPrice - cart.discount * 100) / 100).toFixed(2);
+    totalPrice = (totalPrice / 100).toFixed(2);
+    
+    return { totalItems, totalPrice, discountPrice };
+  }, [cart.items, cart.discount]);
 
   const cartContextValue = {
     items: cart.items,
+    totals,
+    discount: cart.discount,
     addItem,
     removeItem
-  }
+  };
 
   return (
     <CartContext.Provider value={cartContextValue}>
       {children}
     </CartContext.Provider>
-  )
+  );
 }
 
 export default CartContextProvider;
-
-// Scaling Up with Reducer and Context https://react.dev/learn/scaling-up-with-reducer-and-context
-// Reducers let you consolidate a component’s state update logic. 
-// Context lets you pass information deep down to other components. 
-// You can combine reducers and context together to manage state of a complex screen.

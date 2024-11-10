@@ -68,7 +68,7 @@
   z-index: 9999;
   top: 0;
   right: 0;
-  width: 3rem;
+  width: 3.2rem;
   background-color: #44d0e9;
   display: flex;
   flex-direction: column;
@@ -84,8 +84,8 @@
   text-align: center;
   color: white;
   text-decoration: none;
-  height: 0.56rem;
-  line-height: 0.56rem;
+  height: 0.72rem;
+  line-height: 0.72rem;
   border-bottom: 1px solid #fff;
 }
 

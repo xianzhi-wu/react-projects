@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Menu.module.css';
@@ -6,9 +6,26 @@ import styles from './Menu.module.css';
 export default function Menu() {
   const [displayMenu, setDisplayMenu] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = (event) => {
+    event.stopPropagation();
     setDisplayMenu(prevState => !prevState);
   }
+
+  useEffect(() => {
+    const hideMenu = () => {
+      setDisplayMenu(prevState => {
+        if (prevState) {
+          return false;
+        }
+      });
+    };
+
+    document.addEventListener("click", hideMenu)
+
+    return () => {
+      document.removeEventListener("click", hideMenu);
+    }
+  }, []);
 
   return (
     <div className={`${styles["menu"]} ${displayMenu ? styles["active"] : ''}`} onClick={toggleMenu}>

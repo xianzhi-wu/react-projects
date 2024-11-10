@@ -3,13 +3,10 @@ import Header from "../../layouts/Header";
 import { useContext } from "react";
 import { CartContext } from "../../../store/CartContext";
 import { Link } from "react-router-dom";
-import { useCartTotalPrice } from "./hooks/useCartContext";
 import useCountdown from "./hooks/useCountdown";
 
 export default function Pay() {
-  const cartCtx = useContext(CartContext);
-
-  const cartTotalPrice = useCartTotalPrice(cartCtx);
+  const {totals, discount} = useContext(CartContext);
   const timeLeft = useCountdown();
 
   return (
@@ -30,7 +27,11 @@ export default function Pay() {
           </div>
           <div className="box-layout">
             <div className="label">交易金额</div>
-            <div className="box-col" id="uprice">${((cartTotalPrice - 500) / 100).toFixed(2)}</div>
+            <div className="box-col" id="uprice">
+            ￥{
+                (totals.totalPrice > discount && discount > 0) ? totals.discountPrice : totals.totalPrice
+              }
+            </div>
           </div>
           <div className="box-layout">
             <div className="label">还需支付</div>

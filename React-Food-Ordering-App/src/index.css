@@ -638,6 +638,10 @@ input {
 	height: 1rem;
 }
 
+.cart-placehoder {
+	height: 1rem;
+}
+
 #miniCart {
 	padding: 0 .2rem;
 	font-size: .2rem;
