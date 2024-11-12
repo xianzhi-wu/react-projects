@@ -15,7 +15,7 @@ export default function Review() {
               <div className="box-layout"><span>配送评价</span><textarea className="box-col" placeholder="非必填。配送速度是否满意、配送态度是否好。评分低的配送站包师傅将终止合作"></textarea></div>
           </div>
       </div>
-      <div className="validate-tip"></div>
+
       <a id="postInf">提交</a>
     </>
   );

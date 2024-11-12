@@ -23,7 +23,6 @@ export default function AddAdress() {
         </div>
       </section>
 
-      <div className="validate-tip"></div>
       <a id="postInf">提&emsp;交</a>
     </>
   );

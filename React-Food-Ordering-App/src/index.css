@@ -1351,7 +1351,7 @@ input {
 }
 
 #ucenter {
-	padding-bottom: 1rem;
+	padding-bottom: 0.2rem;
 }
 
 #ucenter .header {
@@ -1875,7 +1875,7 @@ input {
 	display: block;
 	color: #fff;
 	text-align: center;
-	margin: 0 .2rem .2rem;
+	margin: .5rem 0.2rem 0.2rem;
 }
 
 .pages {
