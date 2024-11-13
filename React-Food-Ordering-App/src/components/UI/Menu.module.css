@@ -1,0 +1,97 @@
+.menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 0.44rem;
+  height: 0.36rem;
+  margin-left: auto;
+  transition: height 0.3s ease;
+}
+
+.menu .menuIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.menu .menuIcon .bar {
+  width: 100%;
+  height: 0.06rem;
+  background-color: #44d0e9;
+  transition: transform 0.3s ease;
+}
+
+.menu.active {
+  height: 0.44rem;
+}
+
+.menu.active .menuIcon .bar:nth-child(2) {
+  transform: translateY(0.13rem);
+}
+
+.menu.active .menuIcon .bar:nth-child(3) {
+  transform: translateY(0.26rem);
+}
+
+.menu .menuIcon .text {
+  position: relative;
+  width: 100%;
+  height: 0.18rem;
+  visibility: visible;
+  opacity: 1; 
+  transition: visibility 0s 0.3s, opacity 0s 0.3s; /* Delay the appearance without transition effects */
+}
+
+.menu .menuIcon .text::before {
+  content: 'MENU';
+  position: absolute;
+  bottom: 0;
+  left: 0;  
+  right: 0;
+  height: 0.15rem;
+  font-size: 0.15rem;
+  font-weight: bold;
+  color: #44d0e9;
+  line-height: normal;
+  text-align: center;
+}
+
+.menu.active .menuIcon .text {
+  visibility: hidden;
+  opacity: 0;
+  transition-delay: 0s;  /* No delay when active */
+}
+
+.menu .menuList {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  width: 3.2rem;
+  background-color: #44d0e9;
+  display: flex;
+  flex-direction: column;
+  opacity: 0; 
+  visibility: hidden; 
+  transition: all 0.3s ease;
+}
+
+.menu .menuList a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  height: 0.72rem;
+  line-height: 0.72rem;
+  border-bottom: 1px solid #fff;
+}
+
+.menu .menuList a:last-child {
+  border-bottom: 0;
+}
+
+.menu.active .menuList {
+  transform: translateY(0.60rem);
+  opacity: 1;
+  visibility: visible;
+}

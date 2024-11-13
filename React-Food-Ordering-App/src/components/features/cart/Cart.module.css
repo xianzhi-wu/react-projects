@@ -1,0 +1,98 @@
+.cartPlacehoder {
+	height: 1rem;
+}
+
+.miniCart {
+  display: flex;
+  align-items: center;
+	font-size: 0.2rem;
+	white-space: nowrap;
+}
+
+.miniCart .cartIcon {
+  position: relative;
+  z-index: 9992;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background: #d9521a;
+  margin-top: -0.45rem;
+}
+
+.miniCart .cartIcon:before {
+  content: '';
+  display: block;
+  background: url(../src/assets/images/sprite1.png) no-repeat;
+  background-size: 3.8rem 3.5rem;
+  background-position: -3.22rem -0.44rem;
+  width: 0.58rem;
+  height: 0.54rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.miniCart .cartIcon .amount {
+  color: #fff;
+  height: 0.4rem;
+  width: 0.4rem;
+  line-height: 0.4rem;
+  border-radius: 50%;
+  background: #e20e26;
+  text-align: center;
+  font-size: 0.24rem;
+  position: absolute;
+  top: -0.1rem;
+  right: -0.04rem;
+  border: 2px solid #fff;
+}
+
+.miniCart .settle {
+  flex: 1;
+	color: #ffff00;
+	font-size: 0.36rem;
+	margin: 0 0.2rem;
+}
+
+.miniCart .settle .discount {
+	font-size: 0.24rem;
+	color: #999;
+	vertical-align: middle;
+}
+
+.miniCart .meals {
+  position: absolute;
+	z-index: 9991;
+	background: #fff;
+	bottom: 1rem;
+	left: 0;
+	width: 100%;
+	padding-bottom: 0.16rem;
+}
+
+.miniCart .meals ul li {
+  display: flex;
+  align-items: center;
+	height: 1.25rem;
+	border-bottom: 1px solid #e6e6e6;
+	padding: 0 0.25rem;
+}
+
+.miniCart .meals ul li:last-child {
+	border-bottom: none;
+}
+
+.miniCart .meals ul li .name {
+	color: #4d4d4d;
+	font-size: 0.32rem;
+	width: 3rem;
+}
+
+.miniCart .meals ul li .price {
+  flex: 1;
+	color: #ff3333;
+	font-size: 0.3rem;
+	padding: 0 0.12rem;
+}
+

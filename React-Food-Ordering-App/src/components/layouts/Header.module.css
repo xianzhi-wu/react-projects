@@ -1,0 +1,31 @@
+.navBar {
+	position: relative;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.36rem;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	background: #d9521a;
+	user-select: none;
+}
+
+.navBar .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0.8rem;
+	overflow: hidden;
+}
+
+.navBar .back:before {
+	content: '';
+	display: block;
+  background: url(../src/assets/images/sprite1.png) no-repeat;
+	background-size: 3.8rem 3.5rem;
+	background-position: -3rem 0;
+	width: 0.46rem;
+	height: 0.4rem;
+	margin: 0.2rem auto 0;
+}
