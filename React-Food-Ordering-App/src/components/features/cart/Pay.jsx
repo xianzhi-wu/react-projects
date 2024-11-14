@@ -1,65 +1,81 @@
-import Header from "../../layouts/Header";
-
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import Header from "../../layouts/Header";
 import { CartContext } from "../../../store/CartContext";
-import { Link } from "react-router-dom";
 import useCountdown from "./hooks/useCountdown";
+import styles from "./Order.module.css";
+import ConfirmBtn from "../../UI/ConfirmBtn";
+import FixedBtm from "../../layouts/FixedBtm";
 
 export default function Pay() {
   const {totals, discount} = useContext(CartContext);
   const timeLeft = useCountdown();
 
+  const navigate = useNavigate();
+  const pay = () => {
+    navigate("/cart/checkout/complete");
+  }
+
   return (
     <>
       <Header title="Pay" />
 
-      <section id="orderResult">
-          <input id="countSeconds" type="hidden" value="900"/>
-          <div id="order-state" className="time">
-            支付剩余时间：<span id="minute">{parseInt(timeLeft/60)}</span> 分 <span id="second">{timeLeft%60}</span> 秒
-          </div>
+      <section className={styles.orderResult}>
+        <div className={`${styles.countdown} ${styles.focus}`}>
+          <div className={styles.timeIcon}>
+            </div>支付剩余时间：<span>{parseInt(timeLeft/60)}</span>分<span>{timeLeft%60}</span>秒
+        </div>
       </section>
-      <section className="orderCont payInfo">
-          <div className="tit">结算信息</div>
-          <div className="box-layout">
-            <div className="label">订单号</div>
-            <div className="box-col">$orderNo</div>
-          </div>
-          <div className="box-layout">
-            <div className="label">交易金额</div>
-            <div className="box-col" id="uprice">
+
+      <div className={styles.tit}>结算信息</div>  
+      <div className={styles.orderDes}>
+        <dl>
+          <dt>结算信息</dt>
+          <dd>12333164964</dd>
+        </dl>
+        <dl>
+          <dt>交易金额</dt>
+          <dd>
+          ￥{
+              (totals.totalPrice > discount && discount > 0) ? totals.discountPrice : totals.totalPrice
+            }
+          </dd>
+        </dl>
+        <dl>
+          <dt>还需支付</dt>
+          <dd>
             ￥{
-                (totals.totalPrice > discount && discount > 0) ? totals.discountPrice : totals.totalPrice
-              }
-            </div>
-          </div>
-          <div className="box-layout">
-            <div className="label">还需支付</div>
-            <div className="box-col">price</div>
-          </div>
-      </section>
-      <section className="orderCont payInfo" id="payType">
-          <div className="tit">选择支付方式</div>
-          <div className="box-layout" id="wechat-pay">
-            <div className="label box-col">微信支付</div><div className="choose active"></div>
-          </div>
-          <div className="box-layout" id="balance-pay">
-            <div className="label">余额支付</div>
-            <div className="box-col" id="money">可用余额:balance</div>
-            <div className="choose"></div>
-          </div>
-      </section>
-      <div className="tipLayer cover hide" id="tip01">
-          <div className="uiLayer">
-            <div className="uiTitle">温馨提示</div>
-            <div className="cont">您刚刚提交了一个订单，是否继续支付？</div>
-            <div className="btns">
-                <a id="cancelBtn">取消订单</a>
-                <a className="confirmBtn" id="continue">继续支付</a>
-            </div>
-          </div>
+              (totals.totalPrice > discount && discount > 0) ? totals.discountPrice : totals.totalPrice
+            }
+          </dd>
+        </dl>
       </div>
-      <Link id="postInf" to="/cart/checkout/complete">Pay</Link>
+
+      <div className={styles.tit}>选择支付方式</div>
+      <div className={`${styles.orderDes} ${styles.payMethod} ${styles.mb12}`}>
+        <dl>
+          <dt>
+            <div className={styles.wechatIcon}></div>微信支付
+          </dt>
+          <dd>
+            <input type="radio" name="paymethod" value="1" id="wechat" />
+            <label htmlFor="wechat"></label>
+          </dd>
+        </dl>
+        <dl>
+          <dt><div className={styles.balanceIcon}></div>余额支付</dt>
+          <dd>
+            <span className={styles.balance}>可用余额: balance</span>
+            <input type="radio" name="paymethod" value="2" id="balance" />
+            <label htmlFor="balance"></label>
+          </dd>
+        </dl>
+      </div> 
+
+      <FixedBtm>
+        <ConfirmBtn action={pay}>Pay</ConfirmBtn>
+      </FixedBtm>
     </>
   );
 }

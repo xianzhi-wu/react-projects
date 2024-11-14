@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FixedBtmDiv = styled.div`
+const FixedBtm = styled.div`
   position: fixed;
   z-index: 9999;
   bottom: 0;
@@ -10,6 +10,8 @@ const FixedBtmDiv = styled.div`
   padding: 0.2rem;
 `;
 
-export default function FixedBtm({ children }) {
-  return <FixedBtmDiv>{children}</FixedBtmDiv>;
-}
+// export default function FixedBtm({ children }) {
+//   return <FixedBtmDiv>{children}</FixedBtmDiv>;
+// }
+
+export default FixedBtm;

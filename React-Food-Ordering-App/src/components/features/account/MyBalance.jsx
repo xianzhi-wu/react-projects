@@ -5,7 +5,7 @@ export default function Balance() {
     <>
       <Header title="余额" />
       
-      <div id="balance">
+      <div id="my-balance">
           我的余额
           <div className="money">200.00</div>
           <i className="shadow"></i>

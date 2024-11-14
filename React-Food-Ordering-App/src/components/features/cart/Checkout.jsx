@@ -5,7 +5,7 @@ import { CartContext } from "../../../store/CartContext";
 import Header from "../../layouts/Header";
 import FixedBtm from "../../layouts/FixedBtm";
 import CheckBtn from "../../UI/CheckBtn";
-import styles from "./Checkout.module.css";
+import styles from "./Order.module.css";
 import AddItem from "../../UI/cart-item-controls/AddItemBtn";
 import ReduceItem from "../../UI/cart-item-controls/ReduceItemBtn";
 import { ItemControls, Amount } from "../../UI/cart-item-controls/ItemControls";
@@ -27,13 +27,15 @@ export default function Checkout() {
         <div className={styles.address}>收餐地址：中科大厦</div>
       </a>
 
-      <div className={styles.phone}>
-        下单手机号<span>12333164964</span>
-        {/* <a className={styles.btn}>更换</a> */}
-      </div>
+      {/* <div className={styles.orderDes}>
+        <dl>
+          <dt>下单手机号</dt>
+          <dd>12333164964</dd>
+        </dl>
+      </div> */}
 
+      <div className={styles.tit}>购物车</div>  
       <div className={styles.meals}>
-        <p className={styles.tit}>订单信息</p>
         <ul>
           {
             items.map(item => (
@@ -56,8 +58,13 @@ export default function Checkout() {
           }
         </ul>
       </div>
-              
-      <div className={styles.orderDes}>
+
+      <div className={styles.tit}>订单信息</div>  
+      <div className={`${styles.orderDes} ${styles.mb12}`}>
+        <dl>
+          <dt>下单手机号</dt>
+          <dd>12333164964</dd>
+        </dl>
         <dl>
           <dt>配送时间</dt>
           <dd>
@@ -77,13 +84,13 @@ export default function Checkout() {
         </dl>
         <dl>
           <dt>满减</dt>
-          <dd className={styles.mj}>
-            <span>-5</span>
+          <dd>
+            <span className={styles.red}>-￥5</span>
           </dd>
         </dl>
-        <dl className={styles.coupons}>
+        <dl>
           <dt>优惠券</dt>
-          <dd>你当前有<span>2</span>张优惠券</dd>
+          <dd className={styles.coupons}>你当前有<span className={styles.red}>2</span>张优惠券</dd>
         </dl>
       </div>
 

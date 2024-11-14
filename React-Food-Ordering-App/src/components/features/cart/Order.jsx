@@ -1,19 +1,30 @@
-import { Link } from "react-router-dom";
-import Header from "../../layouts/Header";
-import useCountdown from "./hooks/useCountdown";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../store/CartContext";
+
+import Header from "../../layouts/Header";
+import useCountdown from "./hooks/useCountdown";
+import FixedBtm from "../../layouts/FixedBtm";
+import ConfirmBtn from "../../UI/ConfirmBtn";
+
+import styles from "./Order.module.css";
 
 export default function Order() {
   const {totals, discount} = useContext(CartContext);
   const timeLeft = useCountdown();
 
+  const navigate = useNavigate();
+
+  const toPay = () => {
+    navigate("/cart/checkout/pay");
+  }
+
   return (
     <>
       <Header title="Order Detail" />
 
-      <section id="orderResult">
-        <div id="order-state">
+      <section className={styles.orderResult}>
+        <div className={styles.orderState}>
           订单已提交，等待付款
           <span>
             {
@@ -21,29 +32,55 @@ export default function Order() {
             }
           </span>元
         </div>
-        <div id="order-tip">支付剩余时间：<span>{parseInt(timeLeft/60)}</span>分<span>{timeLeft%60}</span>秒</div>
-    </section>
-    
-    <section id="foodInfo">
-      <div className="tit">菜品信息</div>
-      <div className="box-layout"><div className="box-col single-line">麻婆豆腐</div><div className="amount">x2</div><div className="pay">￥36</div></div>
-      <div className="box-layout"><div className="box-col single-line">麻婆豆腐</div><div className="amount">x2</div><div className="pay">￥36</div></div>
-      <div className="box-layout"><div className="box-col">总计</div><div className="pay">￥72</div></div>
-    </section>
-    
-    <section className="orderCont">
-      <div className="tit">菜品信息</div>
-      <div className="box-layout"><div className="label">订单编号</div><div className="box-col">89757</div></div>
-      <div className="box-layout"><div className="label">下单时间</div><div className="box-col">今日08：30</div></div>
-      <div className="box-layout"><div className="label">支付方式</div><div className="box-col">在线支付</div></div>
-      <div className="box-layout"><div className="label">收餐姓名</div><div className="box-col">wxz</div></div>
-      <div className="box-layout"><div className="label">收餐电话</div><div className="box-col">1465161651</div></div>
-      <div className="box-layout"><div className="label">收餐地址</div><div className="box-col single-line">深圳宝安</div></div>
-    </section>
-    
-    <div className="fixed-btm">
-      <Link className="orderBtn" to="/cart/checkout/pay">付款</Link>
-    </div>
+        <div className={styles.countdown}>
+          支付剩余时间：<span>{parseInt(timeLeft/60)}</span>分<span>{timeLeft%60}</span>秒
+        </div>
+      </section>
+
+      <div className={styles.tit}>菜品信息</div>
+      <div className={styles.orderDes}>
+        <dl>
+          <dt>麻婆豆腐</dt>
+          <dd>x2</dd>
+          <dd>￥36</dd>
+        </dl>
+        <dl>
+          <dt>总计</dt>
+          <dd>￥36</dd>
+        </dl>
+      </div>
+      
+      <div className={styles.tit}>菜品信息</div>
+      <div className={`${styles.orderDes} ${styles.mb12}`}>
+        <dl>
+          <dt>订单编号</dt>
+          <dd>89757</dd>
+        </dl>
+        <dl>
+          <dt>下单时间</dt>
+          <dd>今日08：30</dd>
+        </dl>
+        <dl>
+          <dt>支付方式</dt>
+          <dd>在线支付</dd>
+        </dl>
+        <dl>
+          <dt>收餐姓名</dt>
+          <dd>wxz</dd>
+        </dl>
+        <dl>
+          <dt>收餐电话</dt>
+          <dd>1465161651</dd>
+        </dl>
+        <dl>
+          <dt>收餐地址</dt>
+          <dd>深圳宝安</dd>
+        </dl>
+      </div>
+      
+      <FixedBtm>
+        <ConfirmBtn action={toPay}>付款</ConfirmBtn>
+      </FixedBtm>
     </>
   );
 }
