@@ -60,7 +60,7 @@ export default function Checkout() {
       </div>
 
       <div className={styles.tit}>订单信息</div>  
-      <div className={`${styles.orderDes} ${styles.mb12}`}>
+      <div className={styles.orderDes}>
         <dl>
           <dt>下单手机号</dt>
           <dd>12333164964</dd>

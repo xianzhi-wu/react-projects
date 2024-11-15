@@ -5,6 +5,7 @@ export default function Apply() {
   return (
     <>
       <Header title="Apply" />
+
       <form id="apply-join">
           <div className="dl name">
               <div className="dt">姓名</div>
@@ -43,7 +44,7 @@ export default function Apply() {
       <div className="fixed-btm box-layout">
         <Link to="/discover/join/records" className="applyBtn record">记录</Link>
         <button className="applyBtn box-col" id="apply">提交</button>
-    </div>
+      </div>
     </>
   );
 }

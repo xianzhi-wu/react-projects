@@ -51,7 +51,7 @@ export default function Order() {
       </div>
       
       <div className={styles.tit}>菜品信息</div>
-      <div className={`${styles.orderDes} ${styles.mb12}`}>
+      <div className={styles.orderDes}>
         <dl>
           <dt>订单编号</dt>
           <dd>89757</dd>

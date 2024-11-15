@@ -53,7 +53,7 @@ export default function Pay() {
       </div>
 
       <div className={styles.tit}>选择支付方式</div>
-      <div className={`${styles.orderDes} ${styles.payMethod} ${styles.mb12}`}>
+      <div className={`${styles.orderDes} ${styles.payMethod}`}>
         <dl>
           <dt>
             <div className={styles.wechatIcon}></div>微信支付

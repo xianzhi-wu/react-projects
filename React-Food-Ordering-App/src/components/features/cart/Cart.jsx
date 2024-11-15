@@ -36,8 +36,6 @@ export default function Cart() {
     <>
       <div className={`cover ${showItems ? "" : "hide"}`} onClick={toggleCart}></div>
 
-      <div className={styles.cartPlacehoder}></div>
-
       <FixedBtm>
         <div className={styles.miniCart}>
           <i className={styles.cartIcon} onClick={toggleCart}>

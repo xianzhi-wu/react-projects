@@ -1,0 +1,57 @@
+.discoverOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+	height: 4.8rem;
+	background: #fff;
+	font-size: 0.28rem;
+}
+
+.discoverOptions a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+	color: #000;
+	box-sizing: border-box;
+	height: 2.42rem;
+	border-left: 1px solid #cbcbcb;
+	border-top: 1px solid #cbcbcb;
+	margin-top: -1px;
+	margin-left: -1px;
+}
+
+.discoverOptions a:before {
+	content: '';
+	display: block;
+	margin-bottom: 0.1rem;
+	background: url(../../../assets/images/discover.png) no-repeat;
+	background-size: 2.4rem 2.4rem;
+	height: 1.16rem;
+	width: 1.16rem;
+}
+
+.discoverOptions a.join:before {
+	background-position: 0 0;
+}
+
+.discoverOptions a.intro:before {
+	background-position: -1.2rem 0;
+}
+
+.discoverOptions a.safety:before {
+	background-position: 0 -1.2rem;
+}
+
+.discoverOptions a.share:before {
+	background-position: -1.2rem -1.2rem;
+}
+
+.discoverPage {
+	background: #fff;
+	padding: 0.5rem 0;
+}
+
+.discoverPage img {
+	width: 6rem;
+	margin: 0 auto;
+}
