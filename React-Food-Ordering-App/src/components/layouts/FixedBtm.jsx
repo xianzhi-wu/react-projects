@@ -8,6 +8,15 @@ const FixedBtmWrap = styled.div`
   right: 0;
   background-color: #000;
   padding: 0.2rem;
+  user-select: none;
+
+  ${(props) => 
+    (props.$flex && `
+      display: flex;
+      justify-content: space-between;
+      gap: 0.2rem;
+    `)
+  }
 `;
 
 const FixedBtmPlaceHolder = styled.div`
@@ -19,10 +28,12 @@ const FixedBtmPlaceHolder = styled.div`
 //   return <FixedBtmDiv>{children}</FixedBtmDiv>;
 // }
 
-export default function FixedBtm({ children }) {
+export default function FixedBtm({ children, $flex = false }) {
+  console.log($flex)
+
   return (
     <FixedBtmPlaceHolder>
-      <FixedBtmWrap>
+      <FixedBtmWrap $flex={$flex}>
         {children}
       </FixedBtmWrap>
     </FixedBtmPlaceHolder>

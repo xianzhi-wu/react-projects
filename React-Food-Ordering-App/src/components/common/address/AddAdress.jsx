@@ -1,4 +1,6 @@
 import Header from "../../layouts/Header"
+import FixedBtm from "../../layouts/FixedBtm";
+import ConfirmBtn from "../../UI/ConfirmBtn";
 
 export default function AddAdress() {
   return (
@@ -22,8 +24,10 @@ export default function AddAdress() {
           <input type="text" name="addressDetail" className="details" placeholder="公司名、门牌号等详细信息" />
         </div>
       </section>
-
-      <a id="postInf">提&emsp;交</a>
+      
+      <FixedBtm>
+        <ConfirmBtn>提&emsp;交</ConfirmBtn>
+      </FixedBtm>
     </>
   );
 }

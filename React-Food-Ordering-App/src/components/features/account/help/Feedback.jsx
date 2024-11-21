@@ -7,7 +7,6 @@ export default function Feedback() {
 
       <textarea id="feedback" placeholder="请输入您的建议"></textarea>
       <div id="feedback-phone">联系电话<input id="phone" placeholder="请输入手机号"/></div>
-      <div class="validate-tip"></div>
       {/* <a href="#" id="feedback-link">反馈记录</a> */}
     </>
   );

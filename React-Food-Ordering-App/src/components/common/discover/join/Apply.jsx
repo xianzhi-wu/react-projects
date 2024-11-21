@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
 import Header from "../../../layouts/Header";
+import FixedBtm from "../../../layouts/FixedBtm";
+import ConfirmBtn from "../../../UI/ConfirmBtn";
+import LinkBtn from "../../../UI/LinkBtn";
 
 export default function Apply() {
   return (
@@ -38,13 +40,12 @@ export default function Apply() {
                 <textarea name="res" id="res" placeholder="自身缺失哪些资源，包师傅会为您牵线搭桥"></textarea>
               </div>
           </div>
-          <div className="validate-tip"></div>
       </form>
 
-      <div className="fixed-btm box-layout">
-        <Link to="/discover/join/records" className="applyBtn record">记录</Link>
-        <button className="applyBtn box-col" id="apply">提交</button>
-      </div>
+      <FixedBtm $flex="true">
+        <LinkBtn to="/discover/join/records">记录</LinkBtn>
+        <ConfirmBtn>提交</ConfirmBtn>
+      </FixedBtm>
     </>
   );
 }

@@ -60,7 +60,14 @@ export default function Menu({ theme }) {
 
   return (
     <>
-      <div className={`${styles.menu} ${displayMenu ? styles.active : ''} ${theme === "blue" &&  styles.blue}`} onClick={toggleMenu}>
+      <div
+        className={`
+          ${styles.menu} 
+          ${displayMenu ? styles.active : ''} 
+          ${theme === "blue" &&  styles.blue}
+        `} 
+        onClick={toggleMenu}
+      >
         <div className={styles.menuIcon}>
           <div className={styles.bar}></div>
           <div className={styles.bar}></div>

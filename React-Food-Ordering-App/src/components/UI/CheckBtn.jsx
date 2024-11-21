@@ -10,6 +10,7 @@ const Button = styled.button`
 	font-size: 0.28rem;
 	text-align: center;
 	border-radius: 0.1rem;
+	cursor: pointer;
 `;
 
 export default function CheckBtn({ children, action }) {

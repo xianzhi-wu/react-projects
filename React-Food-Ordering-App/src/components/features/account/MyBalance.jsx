@@ -21,7 +21,6 @@ export default function Balance() {
               <input type="text" className="box-col" id="amount" placeholder="手动输入充值金额" />
               <div id="confirm">充值</div>
           </div>
-          <div className="validate-tip"></div>
           <div id="record">
               <div className="tit">余额明细</div>
               <ul>

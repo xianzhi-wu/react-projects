@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "stylelint-no-unused-selectors": "^1.0.40"
+  }
+}

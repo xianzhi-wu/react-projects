@@ -9,7 +9,9 @@ export default function Header(props) {
   return (
     <header className={styles.navBar}>
       <div className={styles.back} onClick={() => navigate(-1)}></div>
-      <div className={styles.centerArea}>{props.title}</div>
+      <div className={styles.centerArea}>
+        {props.title}
+      </div>
       <Menu />
     </header>
   );

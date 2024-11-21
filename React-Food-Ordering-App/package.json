@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "lint:css": "stylelint 'src/index.css' --fix"
   },
   "dependencies": {
     "gh-pages": "^6.2.0",
@@ -28,6 +29,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
+    "stylelint-no-unused-selectors": "^1.0.40",
     "vite": "^5.4.10"
   }
 }
