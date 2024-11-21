@@ -1,9 +1,9 @@
 .menu {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   width: 0.44rem;
-  height: 0.36rem;
+  height: 0.33rem;
   margin-left: auto;
   transition: height 0.3s ease;
 }
@@ -15,21 +15,25 @@
 
 .menu .menuIcon .bar {
   width: 100%;
-  height: 0.06rem;
-  background-color: #44d0e9;
+  height: 0.05rem;
+  background-color: #fff;
   transition: transform 0.3s ease;
 }
 
+.menu.blue .menuIcon .bar {
+  background-color: #44d0e9;;
+}
+
 .menu.active {
-  height: 0.44rem;
+  height: 0.40rem;
 }
 
 .menu.active .menuIcon .bar:nth-child(2) {
-  transform: translateY(0.13rem);
+  transform: translateY(0.12rem);
 }
 
 .menu.active .menuIcon .bar:nth-child(3) {
-  transform: translateY(0.26rem);
+  transform: translateY(0.24rem);
 }
 
 .menu .menuIcon .text {
@@ -50,9 +54,13 @@
   height: 0.15rem;
   font-size: 0.15rem;
   font-weight: bold;
-  color: #44d0e9;
+  color: #fff;
   line-height: normal;
   text-align: center;
+}
+
+.menu.blue .menuIcon .text::before {
+  color: #44d0e9;;
 }
 
 .menu.active .menuIcon .text {
@@ -65,9 +73,11 @@
   position: absolute;
   z-index: 9999;
   top: 0;
-  right: 0;
+  right: 0.2rem;
   width: 3.2rem;
-  background-color: #44d0e9;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0.04rem 0.16rem;
   display: flex;
   flex-direction: column;
   opacity: 0; 
@@ -75,23 +85,44 @@
   transition: all 0.3s ease;
 }
 
+.menu.blue .menuList {
+  background-color: #44d0e9;
+  box-shadow: none;
+}
+
 .menu .menuList a {
   display: block;
   width: 100%;
   text-align: center;
-  color: white;
+  font-size: 0.24rem;
+  color: #333;
   text-decoration: none;
   height: 0.72rem;
   line-height: 0.72rem;
+  border-bottom: 1px solid #dedede;
+}
+
+.menu.blue .menuList a {
   border-bottom: 1px solid #fff;
+  color: #fff;
 }
 
 .menu .menuList a:last-child {
   border-bottom: 0;
 }
 
-.menu.active .menuList {
-  transform: translateY(0.60rem);
+.menu.active  .menuList {
+  transform: translateY(0.8rem);
   opacity: 1;
   visibility: visible;
+}
+
+@media (max-width: 640px) {
+  .menu .menuList {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 0;
+  }
 }

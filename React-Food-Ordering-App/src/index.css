@@ -16,7 +16,14 @@ textarea {
 	padding: 0;
 }
 
+html {
+	height: 100%;
+}
+
 body {
+	position: relative;
+	min-height: 100%;
+	overflow: auto;
 	color: #333;
 	background: #f2f2f2;
 	font-family: Helvetica, Hiragino Sans GB, Arial, sans-serif;
@@ -2106,13 +2113,6 @@ dl {
 	background: #d9521a;
 	border-radius: 0.08rem;
 	font-size: 0.36rem;
-}
-
-.fixed-btm .orderBtn.complain {
-	margin-right: 0;
-	background: none;
-	border: 1px solid #fff;
-	box-sizing: border-box;
 }
 
 .fixed-btm .orderBtn.comment,

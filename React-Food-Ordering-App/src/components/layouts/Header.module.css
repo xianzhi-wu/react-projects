@@ -1,22 +1,28 @@
 .navBar {
-	position: relative;
+	display: flex;
+	align-items: center;
 	height: 0.8rem;
 	line-height: 0.8rem;
 	font-size: 0.36rem;
 	text-align: center;
-	font-weight: bold;
 	color: #fff;
 	background: #d9521a;
 	user-select: none;
+	padding-right: 0.2rem;
 }
 
 .navBar .back {
-	position: absolute;
+	/* position: absolute;
 	top: 0;
-	left: 0;
+	left: 0; */
 	height: 100%;
 	width: 0.8rem;
 	overflow: hidden;
+}
+
+.navBar .centerArea {
+	flex: 1;
+	font-weight: bold;
 }
 
 .navBar .back:before {

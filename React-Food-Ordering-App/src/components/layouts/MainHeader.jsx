@@ -1,5 +1,5 @@
 import styles from './MainHeader.module.css';
-import Menu from '../UI/menu';
+import Menu from '../UI/Menu';
 
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ export default function MainHeader() {
         Drienerlolaan 5, 7522 NB Enschede
       </Link>
       
-      <Menu />
+      <Menu theme="blue" />
     </header>
   );
 }

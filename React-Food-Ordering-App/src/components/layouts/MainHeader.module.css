@@ -1,9 +1,8 @@
 .header {
   display: flex;
 	align-items: center;
-	height: 0.75rem;
-	line-height: 0.75rem;
-	font-size: 0.24rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
 	color: #d9521a;
   background: #fff;
 	padding: 0 0.2rem;
@@ -23,6 +22,7 @@
 	padding: 0 0.5rem 0 0.2rem;
 	margin: 0 0.15rem;
 	max-width: 5rem;
+	font-size: 0.24rem;
 	color: #d9521a;
 	background-color: #f2f2f2;
 	height: 0.5rem;
