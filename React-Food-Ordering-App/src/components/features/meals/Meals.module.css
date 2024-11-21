@@ -1,5 +1,5 @@
 .meals {
-	margin: 0.2rem;
+	padding: 0.2rem;
 }
 
 .meals ul li {
@@ -12,6 +12,10 @@
 	margin-bottom: 0.2rem;
   border-radius: 0.12rem;
   overflow: hidden;
+}
+
+.meals ul li:last-child {
+	margin-bottom: 0;
 }
 
 .meals ul li .img {

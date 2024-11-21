@@ -103,6 +103,10 @@
   border-bottom: 1px solid #dedede;
 }
 
+.menu .menuList a:hover {
+  font-weight: 800;
+}
+
 .menu.blue .menuList a {
   border-bottom: 1px solid #fff;
   color: #fff;

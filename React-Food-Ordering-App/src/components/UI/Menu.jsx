@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Menu.module.css';
+import debounce from '../../utils/debounce';
 
 export default function Menu({ theme }) {
   const [displayMenu, setDisplayMenu] = useState(false);
@@ -11,24 +12,24 @@ export default function Menu({ theme }) {
     
     setDisplayMenu((prevState) => {
       const newState = !prevState;
-      //hideBody(newState);
+      hideBody(newState);
       return newState;
     });
   };  
 
-  // const hideBody = (state) => {
-  //   if (state) {
-  //     document.body.style.overflow = "hidden"; 
-  //   } else {
-  //     if (document.body.style.overflow) {
-  //       document.body.style.overflow = "";
-  //     }
+  const hideBody = (hide) => {
+    if (hide) {
+      document.body.style.overflow = "hidden"; 
+    } else {
+      //if (document.body.style.overflow) {
+      document.body.style.overflow = "";
+      //}
       
-  //     if (document.body.getAttribute("style") === "") {
-  //       document.body.removeAttribute("style");
-  //     }
-  //   }
-  // }
+      // if (document.body.getAttribute("style") === "") {
+      //   document.body.removeAttribute("style");
+      // }
+    }
+  }
 
   useEffect(() => {
     const hideMenu = () => {
@@ -39,12 +40,23 @@ export default function Menu({ theme }) {
       });
     };
 
-    document.addEventListener("click", hideMenu);
+    const handleResize = debounce(() => {
+      if (window.innerWidth > 640) {
+        document.addEventListener("click", hideMenu);
+      } else {
+        document.removeEventListener("click", hideMenu);
+      }
+    }, 300);
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       document.removeEventListener("click", hideMenu);
       document.body.style.overflow = "";
-    }
+    };
   }, []);
 
   const links = [
@@ -53,10 +65,10 @@ export default function Menu({ theme }) {
     { to: "/my-account", text: "My Account" },
   ];
 
-  // const handleLinkClick = () => {
-  //   hideBody(false);
-  //   setDisplayMenu(false);
-  // }
+  const handleLinkClick = () => {
+    hideBody(false);
+    //setDisplayMenu(false);
+  }
 
   return (
     <>
@@ -75,12 +87,15 @@ export default function Menu({ theme }) {
           <div className={styles.text}></div>
         </div>
 
-        <div className={styles.menuList}>
+        <div 
+          className={styles.menuList}
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the menu
+        >
           {links.map((link, index) => (
             <Link 
               key={index} 
               to={link.to} 
-              // onClick={handleLinkClick}
+              onClick={handleLinkClick}
             >
               {link.text}
             </Link>

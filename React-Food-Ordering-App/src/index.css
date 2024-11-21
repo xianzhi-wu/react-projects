@@ -134,6 +134,10 @@ dl {
 	display: none;
 }
 
+.overflow-hidden {
+	overflow: hidden;
+}
+
 .no-result {
 	text-align: center;
 	font-size: 0.32rem;
