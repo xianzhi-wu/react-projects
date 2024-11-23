@@ -551,67 +551,6 @@ dl {
 	background: #d9521a;
 }
 
-#editAddr,
-#addrDetail {
-	border-bottom: 1px solid #dedede;
-}
-
-#addrDetail .details {
-	margin-top: 1.1rem;
-}
-
-#editAddr input {
-	border-bottom: 1px solid #dedede;
-}
-
-#editAddr .radio {
-	height: .86rem;
-	line-height: .86rem;
-	margin-left: 2rem;
-	display: block;
-}
-
-#editAddr em {
-	width: 50%;
-	float: left;
-}
-
-#editAddr em:before {
-	width: .38rem;
-	height: .38rem;
-	top: .06rem;
-	margin-right: .1rem;
-	display: inline-block;
-	position: relative;
-	content: '';
-	border: 0.02rem solid #999;
-	border-radius: 50%;
-	box-sizing: border-box;
-}
-
-#editAddr em.on:before {
-	background-position: -1.4rem -3.1rem;
-	border: none;
-	border-radius: 0;
-}
-
-#addrDetail .addrSelect {
-	height: .9rem;
-	line-height: .9rem;
-	color: #aaa;
-	border-bottom: 1px solid #dedede;
-	display: block;
-	overflow: hidden;
-	margin-right: 0;
-	margin-top: 0;
-	position: absolute;
-	right: 0;
-	left: 0;
-	top: 0;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}
-
 .coupon-wrapper {
 	height: 1.85rem;
 	width: 6rem;
@@ -655,66 +594,6 @@ dl {
 
 .coupon-wrapper .time {
 	margin-top: 0.25rem;
-}
-
-.dl {
-	height: 1.8rem;
-	font-size: .3rem;
-	border-top: 1px solid #dedede;
-	margin-bottom: .2rem;
-	background: #fff;
-	position: relative;
-	overflow: hidden;
-}
-
-.dl .dt {
-	width: 1.6rem;
-	height: .9rem;
-	line-height: .9rem;
-	color: #000;
-	text-align: center;
-	position: absolute;
-}
-
-.dl .dd {
-	margin-left: 2rem;
-}
-
-.dl input {
-	width: 100%;
-	height: .5rem;
-	line-height: .5rem;
-	margin-top: .2rem;
-	margin-bottom: .2rem;
-	display: block;
-}
-
-#apply-join {
-	padding-left: 0.2rem;
-	background: #fff;
-}
-
-#apply-join .dl {
-	margin-bottom: 0;
-	border-bottom: none;
-}
-
-#apply-join .dl.name,
-#apply-join .dl.phone {
-	border-top: 1px solid #e6e6e6;
-	height: 0.9rem;
-	line-height: 0.9rem;
-}
-
-#apply-join #addrDetail {
-	height: 1.8rem;
-	overflow: hidden;
-}
-
-#apply-join .dl textarea {
-	margin-top: 0.2rem;
-	height: 1.6rem;
-	width: 98%;
 }
 
 #myOrders li {

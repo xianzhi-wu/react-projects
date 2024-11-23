@@ -17,7 +17,7 @@ import Pay from "./components/features/cart/Pay";
 import Order from "./components/features/cart/Order";
 import Complete from "./components/features/cart/Complete";
 import Address from "./components/common/address/Address";
-import AddAdress from "./components/common/address/AddAdress";
+import AddAddress from "./components/common/address/AddAddress";
 import Balance from "./components/features/account/MyBalance";
 import Help from "./components/features/account/help/Help";
 import Coupons from "./components/features/account/MyCoupons";
@@ -184,7 +184,7 @@ function App() {
             },
             {
               path:"add",
-              element: <AddAdress />
+              element: <AddAddress />
             }
           ]
         }

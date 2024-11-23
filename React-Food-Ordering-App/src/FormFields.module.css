@@ -1,0 +1,107 @@
+.form dl {
+	height: 1.8rem;
+	font-size: .3rem;
+	border-top: 1px solid #dedede;
+	margin-bottom: .2rem;
+	background: #fff;
+	position: relative;
+	overflow: hidden;
+}
+
+.form dl dt {
+	width: 1.6rem;
+	height: .9rem;
+	line-height: .9rem;
+	color: #000;
+	text-align: center;
+	position: absolute;
+}
+
+.form dl dd {
+	margin-left: 2rem;
+}
+
+.form dl input {
+	width: 100%;
+	height: .5rem;
+	line-height: .5rem;
+	margin-top: .2rem;
+	margin-bottom: .2rem;
+	display: block;
+}
+
+/* 申请加入 */
+.form.applyJoin {
+	padding-left: 0.2rem;
+	background: #fff;
+}
+
+.form.applyJoin dl {
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+.form.applyJoin dl.name,
+.form.applyJoin dl.phone {
+	border-top: 1px solid #e6e6e6;
+	height: 0.9rem;
+	line-height: 0.9rem;
+}
+
+.form.applyJoin dl textarea {
+	margin-top: 0.2rem;
+	height: 1.6rem;
+	width: 98%;
+}
+
+/*shared with AddAddress page */
+.form .addr {
+	border-bottom: 1px solid #e6e6e6;
+	height: 1.8rem;
+	overflow: hidden;
+}
+
+.form .addr .addr01 {
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.form dl.editAddr {
+	border-bottom: 1px solid #dedede;
+}
+
+.form dl.editAddr input {
+	border-bottom: 1px solid #dedede;
+}
+
+.form dl.editAddr .radio {
+	height: .86rem;
+	line-height: .86rem;
+	margin-left: 2rem;
+	display: block;
+}
+
+.form dl.editAddr em {
+	width: 50%;
+	float: left;
+}
+
+.form dl.editAddr em:before {
+	width: .38rem;
+	height: .38rem;
+	top: .06rem;
+	margin-right: .1rem;
+	display: inline-block;
+	position: relative;
+	content: '';
+	border: 0.02rem solid #999;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+.form dl.editAddr em.on:before {
+	background: url(./assets/images/sprite1.png) no-repeat;
+	background-size: 3.8rem 3.5rem;
+	background-position: -1.4rem -3.1rem;
+	border: none;
+	border-radius: 0;
+}

@@ -250,7 +250,7 @@
 }
 
 .orderResult .orderState.time:before {
-  background: url(../src/assets/images/sprite1.png) no-repeat;
+  background: url(../../../assets/images/sprite1.png) no-repeat;
 	background-size: 3.8rem 3.5rem;
 	background-position: -0.88rem -3.04rem;
 	height: 0.48rem;
@@ -274,7 +274,7 @@
 }
 
 .orderResult .countdown .timeIcon {
-  background: url(../src/assets/images/sprite1.png) no-repeat;
+  background: url(../../../assets/images/sprite1.png) no-repeat;
   background-size: 3.8rem 3.5rem;
   background-position: -0.88rem -3.04rem;
   height: 0.48rem;

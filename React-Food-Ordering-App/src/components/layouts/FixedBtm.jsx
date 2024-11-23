@@ -29,7 +29,6 @@ const FixedBtmPlaceHolder = styled.div`
 // }
 
 export default function FixedBtm({ children, $flex = false }) {
-  console.log($flex)
 
   return (
     <FixedBtmPlaceHolder>
